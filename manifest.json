@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "Snipr - Snipe Roblox Users",
+  "short_name": "Snipr",
+  "description": "Snipe your favorite Roblox player",
+  "author": "pompompurin",
+  "version": "1.1.2",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "snipr@pomsaddons.xyz",
+      "strict_min_version": "109.0"
+    }
+  },
+  "icons": {
+    "128": "resources/icons/logo/128/glow.png",
+    "256": "resources/icons/logo/256/glow.png"
+  },
+  "web_accessible_resources": [
+    "resources/*",
+    "js/*"
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "*://*.roblox.com/*"
+  ],
+  "content_scripts": [
+    {
+      "js": [
+        "js/background/browseraction.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "matches": [
+        "*://*.roblox.com/*"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": true
+  }
+}
