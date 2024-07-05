@@ -89,7 +89,7 @@
 
     const getUserId = (name) =>
         fetch("https://www.roblox.com/users/profile?username=" + name).then((r) => {
-            if (!r.ok) throw "User not found, if the game has a large amount of people per server (over 6), you may need to refresh.";
+            if (!r.ok) throw "You may have made a typo in the username.";
             return r.url.match(/\d+/)[0];
         });
 
@@ -203,7 +203,7 @@
                 },
                 (place) => {
                     if (!place.found) {
-                        statusText.innerText = "couldn't find them";
+                        statusText.innerText = "User not found, if the game has a large amount of people per server (over 6), you may need to refresh the page.llllllllllllllllllllll";
                         return;
                     }
 
