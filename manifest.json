@@ -1,15 +1,10 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Snipr - Snipe Roblox Users",
   "short_name": "Snipr",
-  "description": "snipe your favorite roblox player",
+  "description": "Snipe your favorite Roblox player",
   "author": "pompompurin",
-  "version": "1.1.1",
-
-  "background": {
-    "scripts": [ "js/background/browseraction.js" ]
-  },
-
+  "version": "1.1.2",
   "browser_specific_settings": {
     "gecko": {
       "id": "snipr@pomsaddons.xyz",
@@ -17,29 +12,18 @@
     }
   },
   "icons": {
-    "256": "resources/icons/logo/256/glow.png",
-    "128": "resources/icons/logo/128/glow.png"
+    "128": "resources/icons/logo/128/glow.png",
+    "256": "resources/icons/logo/256/glow.png"
   },
-
   "web_accessible_resources": [
-    {
-      "resources": [
-        "resources/*",
-        "js/*"
-      ],
-      "matches": [ "<all_urls>" ]
-    }
+    "resources/*",
+    "js/*"
   ],
-
-  "host_permissions": [
-    "*://*.roblox.com/*"
-  ],
-
   "permissions": [
     "storage",
-    "tabs"
+    "tabs",
+    "*://*.roblox.com/*"
   ],
-
   "content_scripts": [
     {
       "js": [
@@ -47,7 +31,15 @@
       ],
       "run_at": "document_start",
       "all_frames": true,
-      "matches": [ "*://*.roblox.com/*" ]
+      "matches": [
+        "*://*.roblox.com/*"
+      ]
     }
-  ]
+  ],
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": true
+  }
 }
